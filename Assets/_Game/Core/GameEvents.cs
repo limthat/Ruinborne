@@ -82,4 +82,16 @@ namespace Ruinborne.Core
     {
         public int Seed;
     }
+
+    // 건축 관련
+    public struct BlockPlacedEvent
+    {
+        public Vector3 Position;
+        public Ruinborne.Systems.Building.BlockType BlockType;
+    }
+
+    public struct BlockRemovedEvent
+    {
+        public Vector3 Position;
+    }
 }
