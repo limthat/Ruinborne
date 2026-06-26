@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e250fb0363875f428212f32f95b7db8, type: 3}
+  m_Name: TerrainDef_Mountain
+  m_EditorClassIdentifier: Assembly-CSharp::Ruinborne.Definitions.TerrainDef
+  terrainName: "\uC0B0\uC545"
+  terrainType: 2
+  moveSpeedFactor: 0.5
+  canBuildOn: 0
+  fertility: 0.2
+  flammability: 0
+  thermalConductivity: 0.05
+  isWater: 0
+  beautyOffset: 0
