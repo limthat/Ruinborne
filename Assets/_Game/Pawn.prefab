@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 2534608199042844238}
   - component: {fileID: 2163121404855106098}
   - component: {fileID: 4098557312831336141}
+  - component: {fileID: 5872118575524792561}
   m_Layer: 0
   m_Name: Pawn
   m_TagString: Untagged
@@ -340,3 +341,19 @@ MonoBehaviour:
   actionName: Action
   cost: 1
   searchRadius: 30
+--- !u!114 &5872118575524792561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662082562786965530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca18221c51094e4b81c9aabf4127afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ruinborne.Systems.PawnAI.Actions.WanderAction
+  actionName: Action
+  cost: 1
+  wanderRadius: 10
+  wanderInterval: 5

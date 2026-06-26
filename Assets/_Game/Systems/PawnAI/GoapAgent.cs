@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using Ruinborne.Core;
 
 namespace Ruinborne.Systems.PawnAI
@@ -52,6 +53,25 @@ namespace Ruinborne.Systems.PawnAI
             _worldState["is_lonely"] = _needs.IsCritical(Data.NeedType.Social);
             _worldState["has_food"] = ServiceLocator.Get<Economy.ResourceManager>()
                 ?.GetAmount(Data.ResourceType.RawFood) > 0;
+
+            // 근처 자원 확인
+            Collider[] cols = Physics.OverlapSphere(transform.position, 30f);
+            bool hasResourceNearby = false;
+            foreach (var col in cols)
+            {
+                if (col.GetComponent<Economy.ResourceObject>() != null)
+                {
+                    hasResourceNearby = true;
+                    break;
+                }
+            }
+            _worldState["has_resource_nearby"] = hasResourceNearby;
+            _worldState["has_resource_to_haul"] = hasResourceNearby;
+            _worldState["has_sleep_spot"] = true; // 임시: 항상 수면 가능
+            _worldState["has_pawn_nearby"] = FindObjectsByType<PawnController>(
+                FindObjectsSortMode.None).Length > 1;
+
+            Debug.Log($"[GoapAgent] WorldState — hungry:{_worldState.GetValueOrDefault("is_hungry")} tired:{_worldState.GetValueOrDefault("is_tired")} resource:{_worldState.GetValueOrDefault("has_resource_nearby")} goal:{string.Join(",", _currentGoal.Select(kv => kv.Key + "=" + kv.Value))}");
         }
 
         private void DetermineGoal()
@@ -69,9 +89,9 @@ namespace Ruinborne.Systems.PawnAI
                 _currentGoal["is_tired"] = false;
                 return;
             }
-            // 기본 목표: 작업 수행
+            // 기본 목표: 배회 (할 일 없을 때)
             _currentGoal.Clear();
-            _currentGoal["is_working"] = true;
+            _currentGoal["is_wandering"] = true;
         }
 
         private void Plan()
@@ -87,10 +107,15 @@ namespace Ruinborne.Systems.PawnAI
                 if (_currentPlan == null || _currentPlan.Count == 0) return;
                 _currentAction = _currentPlan.Dequeue();
                 _currentAction.Reset();
+                Debug.Log($"[GoapAgent] 액션 시작: {_currentAction.actionName}");
             }
 
             bool done = _currentAction.Perform();
-            if (done) _currentAction = null;
+            if (done)
+            {
+                Debug.Log($"[GoapAgent] 액션 완료: {_currentAction.actionName}");
+                _currentAction = null;
+            }
         }
 
         public void AddAction(GoapAction action)

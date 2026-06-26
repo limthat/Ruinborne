@@ -12,6 +12,12 @@ namespace Ruinborne.Systems.PawnAI.Actions
         private bool _isHarvesting = false;
         private float _harvestTimer = 0f;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            actionName = "HarvestAction";
+        }
+
         protected override void SetupConditions()
         {
             AddPrecondition("has_resource_nearby", true);
@@ -26,7 +32,12 @@ namespace Ruinborne.Systems.PawnAI.Actions
 
         public override bool Perform()
         {
-            if (_targetResource == null || _targetResource.IsDeplete) return true;
+            // _targetResource가 없으면 다시 탐색
+            if (_targetResource == null || _targetResource.IsDeplete)
+            {
+                _targetResource = FindNearestResource();
+                if (_targetResource == null) return true;
+            }
 
             // 이동
             float dist = Vector3.Distance(transform.position, _targetResource.transform.position);
@@ -61,7 +72,7 @@ namespace Ruinborne.Systems.PawnAI.Actions
         {
             _isHarvesting = false;
             _harvestTimer = 0f;
-            _targetResource = null;
+            // _targetResource는 유지 (Perform에서 재탐색)
         }
 
         private ResourceObject FindNearestResource()
