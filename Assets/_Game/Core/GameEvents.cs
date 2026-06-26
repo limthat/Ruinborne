@@ -95,6 +95,20 @@ namespace Ruinborne.Core
         public Vector3 Position;
     }
 
+    // 상호작용 관련
+    public struct PawnInteractedEvent
+    {
+        public string PawnName;
+        public Vector3 Position;
+    }
+
+    public struct PawnCommandIssuedEvent
+    {
+        public string PawnName;
+        public string CommandType;
+        public Vector3 TargetPosition;
+    }
+
     // 폰 명령 관련
     public struct PawnGroupSelectedEvent
     {
