@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Ruinborne.Core;
 
 namespace Ruinborne.Systems.Commander
@@ -37,14 +38,11 @@ namespace Ruinborne.Systems.Commander
 
         private void HandleMouseLook()
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+            Vector2 mouseDelta = Mouse.current.delta.ReadValue() * 0.1f * mouseSensitivity;
 
-            // 좌우 회전 — 캐릭터 전체
-            transform.Rotate(Vector3.up * mouseX);
+            transform.Rotate(Vector3.up * mouseDelta.x);
 
-            // 상하 회전 — 카메라만
-            _verticalRotation -= mouseY;
+            _verticalRotation -= mouseDelta.y;
             _verticalRotation = Mathf.Clamp(_verticalRotation, -verticalClampAngle, verticalClampAngle);
             if (cameraTransform != null)
                 cameraTransform.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
@@ -56,20 +54,24 @@ namespace Ruinborne.Systems.Commander
             if (_isGrounded && _velocity.y < 0f)
                 _velocity.y = -2f;
 
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
+            var keyboard = Keyboard.current;
+            Vector2 moveInput = Vector2.zero;
+            if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed) moveInput.x = -1f;
+            if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed) moveInput.x = 1f;
+            if (keyboard.sKey.isPressed || keyboard.downArrowKey.isPressed) moveInput.y = -1f;
+            if (keyboard.wKey.isPressed || keyboard.upArrowKey.isPressed) moveInput.y = 1f;
 
-            bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+            if (moveInput.magnitude > 1f) moveInput.Normalize();
+
+            bool isSprinting = keyboard.leftShiftKey.isPressed;
             float speed = isSprinting ? sprintSpeed : moveSpeed;
 
-            Vector3 move = transform.right * h + transform.forward * v;
+            Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
             _controller.Move(move * speed * Time.deltaTime);
 
-            // 점프
-            if (Input.GetButtonDown("Jump") && _isGrounded)
+            if (keyboard.spaceKey.wasPressedThisFrame && _isGrounded)
                 _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
-            // 중력
             _velocity.y += gravity * Time.deltaTime;
             _controller.Move(_velocity * Time.deltaTime);
         }

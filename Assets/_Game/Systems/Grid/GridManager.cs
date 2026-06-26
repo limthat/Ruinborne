@@ -62,6 +62,7 @@ namespace Ruinborne.Systems.Grid
         {
             var cell = GetCell(x, z);
             if (cell == null) return;
+            if (terrainDef == null) return;
             cell.TerrainDef = terrainDef;
             cell.TileType = terrainDef.terrainType;
         }
