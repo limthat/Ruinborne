@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df50efb1bd2ae2409bc32d0463bf66c, type: 3}
+  m_Name: NeedsDef_Sleep
+  m_EditorClassIdentifier: Assembly-CSharp::Ruinborne.Definitions.NeedsDef
+  needType: 1
+  needName: "\uC218\uBA74"
+  decayRatePerSec: 0.8
+  criticalThreshold: 20
+  warningThreshold: 30
+  fulfillAmountPerAction: 100
+  starvationDamagePerSec: 0.2

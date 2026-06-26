@@ -76,6 +76,7 @@ namespace Ruinborne.Core
     // 게임 상태
     public struct GameStartedEvent { }
     public struct GamePausedEvent { public bool IsPaused; }
+    public struct NavMeshBakedEvent { }
 
     // 맵 관련
     public struct MapGeneratedEvent
