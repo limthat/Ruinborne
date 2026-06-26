@@ -95,6 +95,13 @@ namespace Ruinborne.Core
         public Vector3 Position;
     }
 
+    // 지휘관 관련 (스포너)
+    public struct CommanderAssignedEvent
+    {
+        public string PawnName;
+        public int PawnIndex;
+    }
+
     // 상호작용 관련
     public struct PawnInteractedEvent
     {
