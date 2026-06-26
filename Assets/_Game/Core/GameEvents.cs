@@ -94,4 +94,17 @@ namespace Ruinborne.Core
     {
         public Vector3 Position;
     }
+
+    // 폰 명령 관련
+    public struct PawnGroupSelectedEvent
+    {
+        public int GroupIndex;
+    }
+
+    public struct PawnCommandEvent
+    {
+        public Ruinborne.UI.PawnCommand Command;
+        public int GroupIndex;
+        public Vector3 TargetPosition;
+    }
 }
