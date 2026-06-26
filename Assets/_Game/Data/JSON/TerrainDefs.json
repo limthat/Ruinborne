@@ -1,0 +1,7 @@
+[
+  {"terrainName": "풀밭", "terrainType": 0, "moveSpeedFactor": 1.0, "fertility": 1.0, "flammability": 0.3, "thermalConductivity": 0.1, "isWater": false, "canBuildOn": true, "beautyOffset": 0},
+  {"terrainName": "숲", "terrainType": 1, "moveSpeedFactor": 0.8, "fertility": 1.2, "flammability": 0.6, "thermalConductivity": 0.1, "isWater": false, "canBuildOn": true, "beautyOffset": 1},
+  {"terrainName": "산악", "terrainType": 2, "moveSpeedFactor": 0.5, "fertility": 0.2, "flammability": 0.0, "thermalConductivity": 0.05, "isWater": false, "canBuildOn": false, "beautyOffset": 0},
+  {"terrainName": "물", "terrainType": 3, "moveSpeedFactor": 0.3, "fertility": 0.0, "flammability": 0.0, "thermalConductivity": 0.8, "isWater": true, "canBuildOn": false, "beautyOffset": 0},
+  {"terrainName": "사막", "terrainType": 4, "moveSpeedFactor": 0.9, "fertility": 0.1, "flammability": 0.1, "thermalConductivity": 0.3, "isWater": false, "canBuildOn": true, "beautyOffset": 0}
+]

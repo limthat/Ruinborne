@@ -1,0 +1,5 @@
+[
+  {"needType": 0, "needName": "음식", "decayRatePerSec": 1.5, "criticalThreshold": 25, "warningThreshold": 35, "fulfillAmountPerAction": 40, "starvationDamagePerSec": 0.5},
+  {"needType": 1, "needName": "수면", "decayRatePerSec": 0.8, "criticalThreshold": 20, "warningThreshold": 30, "fulfillAmountPerAction": 100, "starvationDamagePerSec": 0.2},
+  {"needType": 2, "needName": "사교", "decayRatePerSec": 0.5, "criticalThreshold": 25, "warningThreshold": 35, "fulfillAmountPerAction": 30, "starvationDamagePerSec": 0}
+]

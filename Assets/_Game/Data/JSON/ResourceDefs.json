@@ -1,0 +1,6 @@
+[
+  {"resourceName": "원목", "resourceType": 0, "resourceTier": 1, "marketValue": 3, "stackLimit": 75, "weight": 0.5, "flammability": 0.7, "deteriorationRate": 1.0, "canBeStolen": true, "nutrition": 0},
+  {"resourceName": "원석", "resourceType": 1, "resourceTier": 1, "marketValue": 2, "stackLimit": 75, "weight": 1.0, "flammability": 0.0, "deteriorationRate": 0.0, "canBeStolen": true, "nutrition": 0},
+  {"resourceName": "원광", "resourceType": 2, "resourceTier": 1, "marketValue": 5, "stackLimit": 75, "weight": 1.0, "flammability": 0.0, "deteriorationRate": 0.0, "canBeStolen": true, "nutrition": 0},
+  {"resourceName": "식재료", "resourceType": 3, "resourceTier": 1, "marketValue": 2, "stackLimit": 50, "weight": 0.3, "flammability": 0.2, "deteriorationRate": 3.0, "canBeStolen": true, "nutrition": 0.3}
+]
