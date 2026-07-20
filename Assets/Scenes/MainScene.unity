@@ -878,6 +878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ruinborne.Systems.Grid.NavMeshBaker
   navMeshSurface: {fileID: 2072186971}
+  bakeDelay: 1
 --- !u!1 &2116721930
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +917,10 @@ MonoBehaviour:
     prefab: {fileID: 7542947285320443463, guid: c2ed503243969d14aa7acad18ecb4b29, type: 3}
     count: 30
     allowedTileTypes: 02000000
+  - resourceName: "\uC2DD\uC7AC\uB8CC"
+    prefab: {fileID: 3205215475385836594, guid: 192c0f03418a4fa4ebea2fb25ccf79da, type: 3}
+    count: 15
+    allowedTileTypes: 
   gridManager: {fileID: 0}
   spawnAttempts: 200
   minDistanceBetweenResources: 3

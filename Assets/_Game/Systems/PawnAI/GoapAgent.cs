@@ -54,6 +54,21 @@ namespace Ruinborne.Systems.PawnAI
             _worldState["has_food"] = ServiceLocator.Get<Economy.ResourceManager>()
                 ?.GetAmount(Data.ResourceType.RawFood) > 0;
 
+            // has_food_nearby 추가
+            Collider[] foodCols = Physics.OverlapSphere(transform.position, 30f);
+            bool hasFoodNearby = false;
+            foreach (var col in foodCols)
+            {
+                var resource = col.GetComponent<Economy.ResourceObject>();
+                if (resource != null && !resource.IsDeplete &&
+                    resource.ResourceDef?.resourceType == Data.ResourceType.RawFood)
+                {
+                    hasFoodNearby = true;
+                    break;
+                }
+            }
+            _worldState["has_food_nearby"] = hasFoodNearby;
+
             // 근처 자원 확인
             Collider[] cols = Physics.OverlapSphere(transform.position, 30f);
             bool hasResourceNearby = false;

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(read -r _)",
+      "Bash(echo \"\")",
+      "Bash(printf '\\\\n# Claude Code local settings\\\\n.claude/settings.local.json\\\\n')",
+      "Bash(tail -5 .gitignore)"
+    ]
+  }
+}
