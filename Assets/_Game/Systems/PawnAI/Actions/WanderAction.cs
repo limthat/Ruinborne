@@ -43,7 +43,6 @@ namespace Ruinborne.Systems.PawnAI.Actions
                 {
                     _controller.MoveTo(hit.position);
                     _wanderTimer = wanderInterval;
-                    Debug.Log($"[WanderAction] {_controller.PawnName} 배회: {hit.position}");
                 }
             }
 

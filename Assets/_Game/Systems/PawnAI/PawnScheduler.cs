@@ -45,21 +45,18 @@ namespace Ruinborne.Systems.PawnAI
             // 1순위: 음식 위기
             if (_needs != null && _needs.IsCritical(NeedType.Food))
             {
-                Debug.Log($"[PawnScheduler] {_controller.PawnName} — 음식 위기, GOAP 목표 갱신");
                 return; // GoapAgent가 자동 처리
             }
 
             // 2순위: 수면 위기
             if (_needs != null && _needs.IsCritical(NeedType.Sleep))
             {
-                Debug.Log($"[PawnScheduler] {_controller.PawnName} — 수면 위기, GOAP 목표 갱신");
                 return;
             }
 
             // 3순위: 사교 위기
             if (_needs != null && _needs.IsCritical(NeedType.Social))
             {
-                Debug.Log($"[PawnScheduler] {_controller.PawnName} — 사교 위기, GOAP 목표 갱신");
                 return;
             }
 
