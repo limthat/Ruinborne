@@ -1,6 +1,5 @@
-using UnityEngine;
-using UnityEngine.AI;
 using Unity.AI.Navigation;
+using UnityEngine;
 using Ruinborne.Core;
 
 namespace Ruinborne.Systems.Grid
@@ -8,20 +7,12 @@ namespace Ruinborne.Systems.Grid
     public class NavMeshBaker : MonoBehaviour
     {
         [SerializeField] private NavMeshSurface navMeshSurface;
+        [SerializeField] private float bakeDelay = 1f;
 
         private void Start()
         {
-            GameEventBus.Subscribe<MapGeneratedEvent>(OnMapGenerated);
-        }
-
-        private void OnDestroy()
-        {
-            GameEventBus.Unsubscribe<MapGeneratedEvent>(OnMapGenerated);
-        }
-
-        private void OnMapGenerated(MapGeneratedEvent evt)
-        {
-            Invoke(nameof(BakeNavMesh), 0.5f);
+            // 이벤트 방식 대신 일정 시간 후 무조건 베이크
+            Invoke(nameof(BakeNavMesh), bakeDelay);
         }
 
         private void BakeNavMesh()
