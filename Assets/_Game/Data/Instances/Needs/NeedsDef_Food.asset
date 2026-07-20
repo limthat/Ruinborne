@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ruinborne.Definitions.NeedsDef
   needType: 0
   needName: "\uC74C\uC2DD"
-  decayRatePerSec: 3
+  decayRatePerSec: 1.5
   criticalThreshold: 25
   warningThreshold: 35
   fulfillAmountPerAction: 40

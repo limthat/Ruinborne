@@ -80,7 +80,6 @@ namespace Ruinborne.Systems.PawnAI
         {
             if (!_needs.ContainsKey(needType)) return;
             _needs[needType] = Mathf.Min(100f, _needs[needType] + amount);
-            Debug.Log($"[PawnNeeds] {_controller?.PawnName} {needType} +{amount} → {_needs[needType]:F1}");
         }
 
         public float GetNeedValue(NeedType needType)
