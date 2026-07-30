@@ -133,4 +133,10 @@ namespace Ruinborne.Core
     // 네트워크 관련
     public struct PlayerJoinedEvent { public int PlayerId; }
     public struct PlayerLeftEvent { public int PlayerId; }
+
+    public struct CommanderPossessedEvent
+    {
+        public string PawnName;
+        public UnityEngine.Vector3 Position;
+    }
 }
