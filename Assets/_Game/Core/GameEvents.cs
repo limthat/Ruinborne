@@ -129,4 +129,8 @@ namespace Ruinborne.Core
         public int GroupIndex;
         public Vector3 TargetPosition;
     }
+
+    // 네트워크 관련
+    public struct PlayerJoinedEvent { public int PlayerId; }
+    public struct PlayerLeftEvent { public int PlayerId; }
 }
