@@ -15,6 +15,7 @@ namespace Ruinborne.Network
         {
             _runner = gameObject.AddComponent<NetworkRunner>();
             _runner.ProvideInput = true;
+            StartHost(); // 임시: 자동으로 호스트 시작
         }
 
         public async void StartGame(GameMode mode)
