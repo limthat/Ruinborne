@@ -139,4 +139,9 @@ namespace Ruinborne.Core
         public string PawnName;
         public UnityEngine.Vector3 Position;
     }
+
+    public struct GameOverEvent
+    {
+        public string Reason;
+    }
 }
