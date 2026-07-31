@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement name="commander-select-root" style="
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        align-items: center;
+        justify-content: center;">
+
+        <ui:VisualElement name="panel" style="
+            background-color: rgba(20,20,20,0.95);
+            padding: 40px;
+            border-radius: 8px;
+            min-width: 400px;
+            align-items: center;">
+
+            <ui:Label text="지휘관을 선택하세요" style="
+                font-size: 24px;
+                color: white;
+                margin-bottom: 24px;"/>
+
+            <ui:VisualElement name="pawn-select-container" style="
+                width: 100%;
+                flex-direction: column;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -75,7 +75,7 @@ namespace Ruinborne.Systems.PawnAI
             // 스폰 포인트 없으면 원형 배치 — Y를 1.5f로 올려서 타일 위에 스폰
             float angle = index * (360f / startingPawnCount) * Mathf.Deg2Rad;
             return transform.position + new Vector3(
-                Mathf.Cos(angle) * 3f, 1.5f, Mathf.Sin(angle) * 3f);
+                Mathf.Cos(angle) * 1.5f, 1.5f, Mathf.Sin(angle) * 1.5f);
         }
 
         public void SetCommander(int pawnIndex)

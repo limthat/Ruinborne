@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 2163121404855106098}
   - component: {fileID: 4098557312831336141}
   - component: {fileID: 5872118575524792561}
+  - component: {fileID: 8725950836864989666}
+  - component: {fileID: 1875157255978447352}
   m_Layer: 0
   m_Name: Pawn
   m_TagString: Untagged
@@ -293,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ruinborne.Systems.PawnAI.Actions.EatAction
   actionName: Action
   cost: 1
+  searchRadius: 30
   eatDuration: 3
 --- !u!114 &2534608199042844238
 MonoBehaviour:
@@ -357,3 +360,47 @@ MonoBehaviour:
   cost: 1
   wanderRadius: 10
   wanderInterval: 5
+--- !u!143 &8725950836864989666
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662082562786965530}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1875157255978447352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662082562786965530}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dce2ba9cf884f3479c25262fddbca69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ruinborne.Systems.Commander.FirstPersonController
+  moveSpeed: 5
+  sprintSpeed: 10
+  gravity: -20
+  jumpHeight: 1.2
+  cameraTransform: {fileID: 0}
+  mouseSensitivity: 2
+  verticalClampAngle: 80
